@@ -1,6 +1,58 @@
-# Getting Started with Create React App
+# Elastik - Social Media Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A full-stack React application for social media interactions, built with AWS Amplify, GraphQL, and React.
+
+## Project Overview
+
+Elastik is a social media platform where users can create posts, leave comments, and interact with other users. The application uses:
+- **Frontend**: React 19 with Create React App
+- **Backend**: AWS Amplify with AppSync (GraphQL API)
+- **Database**: DynamoDB
+- **Authentication**: AWS Cognito
+
+## Setup Instructions
+
+### Prerequisites
+- Node.js (v14 or higher)
+- npm or yarn
+- AWS Account (for backend deployment)
+- AWS Amplify CLI (optional, for backend management)
+
+### Installation
+
+1. **Clone the repository**
+   ```bash
+   git clone <repository-url>
+   cd my-elastik-app
+   ```
+
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
+   Or with yarn:
+   ```bash
+   yarn install
+   ```
+
+3. **Configure AWS (if needed)**
+   - The project comes with pre-configured AWS settings in `src/aws-exports.js`
+   - If you need to update the backend, ensure your AWS credentials are configured:
+     ```bash
+     aws configure
+     amplify configure
+     ```
+
+4. **Start the development server**
+   ```bash
+   npm start
+   ```
+   The app will open at [http://localhost:3000](http://localhost:3000)
+
+### Verify Setup
+- The app should load without errors
+- You should see the default Create React App page
+- Cognito authentication is integrated and ready to use
 
 ## Available Scripts
 
@@ -39,32 +91,18 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
+## Documentation
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+For more detailed development guidance, see [CLAUDE.md](./CLAUDE.md) which includes:
+- Project architecture and data models
+- AWS Amplify Gen 1 configuration
+- GraphQL schema and directives
+- Common development tasks
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Additional Resources
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- [React Documentation](https://reactjs.org/)
+- [Create React App Docs](https://facebook.github.io/create-react-app/docs/getting-started)
+- [AWS Amplify Documentation](https://docs.amplify.aws/)
+- [AWS AppSync Documentation](https://docs.aws.amazon.com/appsync/)
+- [GraphQL Documentation](https://graphql.org/)
