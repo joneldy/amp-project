@@ -1,0 +1,23 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-myelastikapp-dev-142411-authRole",
+      "UnauthRoleArn": "arn:aws:iam::614543684888:role/amplify-myelastikapp-dev-142411-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::614543684888:role/amplify-myelastikapp-dev-142411-authRole",
+      "Region": "ap-southeast-1",
+      "DeploymentBucketName": "amplify-myelastikapp-dev-142411-deployment",
+      "UnauthRoleName": "amplify-myelastikapp-dev-142411-unauthRole",
+      "StackName": "amplify-myelastikapp-dev-142411",
+      "StackId": "arn:aws:cloudformation:ap-southeast-1:614543684888:stack/amplify-myelastikapp-dev-142411/b5ca2bc0-bd34-11f0-b1e3-06822a99741d",
+      "AmplifyAppId": "d1ho5nixwc4v36"
+    },
+    "categories": {
+      "auth": {
+        "myelastikapp06b759f8": {}
+      },
+      "api": {
+        "myelastikapp": {}
+      }
+    }
+  }
+}

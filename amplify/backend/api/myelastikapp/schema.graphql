@@ -1,0 +1,58 @@
+# User Profile
+type User @model
+  @auth(rules: [
+    { allow: owner, ownerField: "owner", provider: userPools },   # owner uses owner field and Cognito
+    { allow: public, operations: [read], provider: apiKey }
+  ]) {
+  id: ID!
+  owner: String!            # stores Cognito identity (username or sub depending on config)
+  username: String!
+  email: AWSEmail!
+  bio: String
+  profilePicture: String
+  posts: [Post] @connection(keyName: "byUser", fields: ["id"])
+  comments: [Comment] @connection(keyName: "byCommenter", fields: ["id"])
+  createdAt: AWSDateTime!
+  updatedAt: AWSDateTime!
+}
+
+# Post
+type Post @model
+  @key(name: "byUser", fields: ["userID", "createdAt"], queryField: "postsByUser")
+  @auth(rules: [
+    { allow: owner, ownerField: "owner", provider: userPools },
+    { allow: public, operations: [read], provider: apiKey },
+    { allow: private, operations: [read], provider: userPools }
+  ]) {
+  id: ID!
+  owner: String!          # owner identity (Cognito username/sub) — used by allow: owner
+  title: String!
+  content: String!
+  imageUrl: String
+  userID: ID!             # connection to the User model (local UUID id)
+  user: User @connection(fields: ["userID"])
+  comments: [Comment] @connection(keyName: "byPost", fields: ["id"])
+  likes: Int
+  createdAt: AWSDateTime!
+  updatedAt: AWSDateTime!
+}
+
+# Comment
+type Comment @model
+  @key(name: "byPost", fields: ["postID", "createdAt"], queryField: "commentsByPost")
+  @key(name: "byCommenter", fields: ["commenterID", "createdAt"], queryField: "commentsByCommenter")
+  @auth(rules: [
+    { allow: owner, ownerField: "owner", provider: userPools },
+    { allow: public, operations: [read], provider: apiKey },
+    { allow: private, operations: [read], provider: userPools }
+  ]) {
+  id: ID!
+  postID: ID!
+  post: Post @connection(fields: ["postID"])
+  commenterID: ID!        # this remains the connection to the User.id
+  commenter: User @connection(fields: ["commenterID"])
+  owner: String!          # identity of the commenter (Cognito username/sub) — used for owner checks
+  content: String!
+  createdAt: AWSDateTime!
+  updatedAt: AWSDateTime!
+}
